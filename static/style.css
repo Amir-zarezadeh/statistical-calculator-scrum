@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1100px;
     width: 100%;
     background: #fff;
     padding: 2rem;
@@ -66,11 +66,12 @@ textarea {
     border: 1px solid #ddd;
     font-size: 1rem;
     margin-bottom: 1rem;
+    resize: vertical;
 }
 
 .btn-calculate {
     background: linear-gradient(135deg, #7b5cff, #9b59ff);
-    padding: 0.9rem 1.5rem;
+    padding: 0.9rem 1.7rem;
     color: white;
     border: none;
     border-radius: 999px;
@@ -85,14 +86,14 @@ textarea {
 }
 
 .result {
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 12px;
+    margin-top: 1.5rem;
+    border-radius: 16px;
 }
 
+/* generic success / error */
 .result.success {
-    background: #e8ffe8;
-    border: 1px solid #7ecb7e;
+    background: #f2f7ff;
+    border: 1px solid #d0e0ff;
 }
 
 .result.error {
@@ -100,8 +101,91 @@ textarea {
     border: 1px solid #ff6b6b;
 }
 
-/* --- new layout --- */
+/* layout for descriptive results */
+.descriptive-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
 
+.descriptive-header-icon {
+    font-size: 1.3rem;
+}
+
+.descriptive-header-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* cards grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.4rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #222;
+}
+
+/* chart section */
+.chart-section {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1rem 1.2rem 1.4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.4rem;
+}
+
+.chart-title {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+/* explanation section */
+.chart-explanation {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1rem 1.2rem 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.chart-explanation h3 {
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+}
+
+.chart-explanation p {
+    margin: 0.1rem 0;
+}
+
+/* top instruction + CSV upload in one line */
 .instruction-row {
     display: flex;
     justify-content: space-between;
@@ -109,6 +193,11 @@ textarea {
     gap: 1rem;
     margin-bottom: 0.75rem;
     flex-wrap: wrap;
+}
+
+.instruction-text {
+    font-size: 0.95rem;
+    color: #555;
 }
 
 .upload-inline {
@@ -142,5 +231,13 @@ textarea {
 .csv-message {
     font-size: 0.85rem;
     color: #666;
-    margin-bottom: 0.6rem;
+    margin: 0.3rem 0 0.7rem;
+}
+
+/* responsiveness */
+@media (max-width: 700px) {
+    .container {
+        margin: 1rem;
+        padding: 1.2rem;
+    }
 }
