@@ -14,30 +14,48 @@
         </header>
 
         <div class="tabs">
-            <button class="tab-button active" data-tab="descriptive">📈 Descriptive Stats</button>
-            <button class="tab-button" data-tab="ttest">🔬 T-Test</button>
-            <button class="tab-button" data-tab="chisquare">📊 Chi-Square</button>
-            <button class="tab-button" data-tab="correlation">📉 Correlation</button>
+            <button class="tab-button active" data-tab="descriptive">
+                📈 Descriptive Stats
+            </button>
+            <button class="tab-button" data-tab="ttest">
+                🔬 T-Test
+            </button>
+            <button class="tab-button" data-tab="chisquare">
+                📊 Chi-Square
+            </button>
+            <button class="tab-button" data-tab="correlation">
+                📉 Correlation
+            </button>
         </div>
 
         <!-- Descriptive Statistics Tab -->
         <div class="tab-content active" id="descriptive">
             <h2>Descriptive Statistics</h2>
 
-            <p class="instruction">Enter numbers separated by commas:</p>
-            <textarea id="descriptive-input" placeholder="Example: 12, 15, 18, 20, 22, 25, 28" rows="3"></textarea>
-            <button class="btn-calculate" onclick="calculateDescriptive()">Calculate Statistics</button>
-            <div id="descriptive-result" class="result"></div>
+            <div class="instruction-row">
+                <span class="instruction-text">
+                    Enter numbers separated by commas or upload a CSV file:
+                </span>
 
-            <!-- CSV Upload Section -->
-            <div class="csv-upload" style="margin-top: 20px;">
-                <p class="instruction">Or upload a CSV file with numeric values:</p>
-
-                <input type="file" id="csv-input" accept=".csv">
-                <button class="btn-calculate" onclick="uploadCsv()">Upload CSV</button>
-
-                <div id="csv-message" class="result"></div>
+                <span class="upload-inline">
+                    <input type="file" id="csv-input" accept=".csv">
+                    <button type="button" class="btn-upload" onclick="uploadCsv()">
+                        Upload CSV
+                    </button>
+                </span>
             </div>
+
+            <textarea id="descriptive-input"
+                      placeholder="Example: 12, 15, 18, 20, 22, 25, 28"
+                      rows="3"></textarea>
+
+            <div id="csv-message" class="csv-message"></div>
+
+            <button class="btn-calculate" onclick="calculateDescriptive()">
+                Calculate Statistics
+            </button>
+
+            <div id="descriptive-result" class="result"></div>
         </div>
 
         <!-- T-Test Tab -->
@@ -66,7 +84,6 @@
             <button class="btn-calculate" onclick="calculateCorrelation()">Calculate Correlation</button>
             <div id="correlation-result" class="result"></div>
         </div>
-
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
